@@ -59,7 +59,7 @@ if (*str)
 {
     while (str[i] != '\0')
     {
-        _putchar(str[i]);
+        totalchar +=_putchar(str[i]);
         i++;
     }
 }
@@ -67,7 +67,7 @@ else
 {
     while (error[i] != '\0')
     {
-        _putchar(error[i]);
+        totalchar +=_putchar(error[i]);
         j++;
         i++;
     }
