@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			CasesFunction(arg, *format, &totalchar);
+			totalchar += CasesFunction(arg, *format);
 		}
 		else
 		{

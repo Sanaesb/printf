@@ -4,5 +4,5 @@
 /* Function Prototypes */
 int _putchar(char c);
 int _printf(const char *format, ...);
-void CasesFunction(va_list arg, char specifier, int *totalchar);
+int CasesFunction(va_list arg, char specifier );
 #endif
