@@ -49,7 +49,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-				const char *str = va_arg(args, const char *);
+			const char *str = va_arg(args, const char *);
 
 				fputs(str, stdout);
 				totalchar += strlen(str);
@@ -61,6 +61,6 @@ int _printf(const char *format, ...)
 			}
 		}
 		va_end(args);
-		return totalchar;
-	}
+		}
+	return totalchar;
 }
