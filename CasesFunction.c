@@ -1,77 +1,32 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 
 int CasesFunction(va_list arg, char specifier)
 {
-	int totalchar =0;
-	int i;
-	int digits;
-	int divisor;
+	int i=0;
 
-	if (specifier == 'c')
+	if(specifier == 'c' )
 	{
-	totalchar += putchar(va_arg(arg, int));
+		i+=_putchar(va_arg(args, int));
 	}
 	else if (specifier == 's')
 	{
-		char *str = va_arg(arg, char *);
-		for ( i = 0; str[i] != '\0'; i++)
-		{
-			totalchar += putchar(str[i]);
-		}
+		i+=stringprint(va_list args);
 	}
-	else if (specifier == '%')
+	else if ( specifier == '%')
 	{
-		totalchar += putchar('%');
+		i+=_putchar('%');
 	}
-	else if (specifier == 'i' || specifier == 'd')
+	/*
+	else if ( (specifier == 'i')||(specifier == 'd'))
 	{
-		int value = va_arg(arg, int);
-		int temp = value;
-		digits = 0;
-		if (temp == 0)
-		{
-			digits++;
-			totalchar += putchar('0');
-		}
-		else if (temp < 0)
-		{
-			totalchar += putchar('-');
-			temp = -temp;
-		}
-		while (temp > 0)
-		{
-			digits++;
-			temp /= 10;
-		}
-		temp = value;
-		divisor = 1;
-		while (digits > 1)
-		{
-			divisor *= 10;
-			digits--;
-		}
-		while (divisor > 0)
-		{
-			int digit = temp / divisor;
-			totalchar += putchar('0' + digit);
-			temp %= divisor;
-			divisor /= 10;
-		}
+		i+= printid(va_list args);
 	}
-	else if (specifier == 'b')
+	*/
+	else 
 	{
-		unsigned int value = va_arg(arg, unsigned int);
-		for ( i = 31; i >= 0; i--)
-		{
-			int bit = (value >> i) & 1;
-			totalchar += putchar('0' + bit);
-		}
+		i+=_putchar('%');
+		i+= _putchar(specifier);
 	}
-	else
-	{
-		totalchar += putchar('%');
-		totalchar += putchar(specifier);
-	}
-	return(totalchar);
-}
+	return (i);
+}	
+

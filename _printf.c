@@ -1,21 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdarg.h>
-/**
- * _putchar - prints a single character to standard output
- * @c: the character to print
- * Return: 1 on success
- * On error, return -1 and set erno appropriately
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
 /**
  * _printf - produces output according to a format
  * @format: character string with format specifier
@@ -44,7 +27,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			putchar(*format);
+			_putchar(*format);
 			totalchar++;
 		}
 		format++;
