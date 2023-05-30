@@ -24,34 +24,29 @@ int _putchar(char c)
 
 int _printf(const char *format, ...)
 {
-    int totalchar = 0;
-    va_list arg;
+	int totalchar = 0;
+	va_list arg;
 
-    va_start(arg, format);
-
-    if (!format)
-    {
-        return -1;
-    }
-
-    while (*format)
-    {
-        if (*format == '%')
-        {
-            format++;
-            CasesFunction(arg, *format, &totalchar);
-        }
-        else
-        {
-            putchar(*format);
-            totalchar++;
-        }
-        format++;
-    }
-
-    va_end(arg);
-
-    return totalchar;
+	va_start(arg, format);
+	if (!format)
+	{
+		return (-1);
+	}
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			CasesFunction(arg, *format, &totalchar);
+		}
+		else
+		{
+			putchar(*format);
+			totalchar++;
+		}
+		format++;
+	}
+	va_end(arg);
+	return (totalchar);
 }
-
 
