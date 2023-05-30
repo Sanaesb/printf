@@ -51,9 +51,27 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 's')
 			{
-			const char *str = va_arg(args, const char *);
-				fputs(str, stdout);
-				totalchar += strlen(str);
+			char *error = "(null)";
+int i, j = 0;
+const char *str = va_arg(args, const char *);
+
+if (*str)
+{
+    while (str[i] != '\0')
+    {
+        _putchar(str[i]);
+        i++;
+    }
+}
+else
+{
+    while (error[i] != '\0')
+    {
+        _putchar(error[i]);
+        j++;
+        i++;
+    }
+}
 			}
 			else if (*format == '%')
 			{
