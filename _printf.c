@@ -28,28 +28,20 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	
-	if (format[1] == '\0' || (*format == '%' && format[1]))
-	{
-        	return (-1);
-	}
 
-	if (*format == '%' && format[1] == ' ' && !format[2]) 
-	{
-        	return (-1);
-	}
-
+	if (format == NULL || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
 	for (; *format != '\0'; format++)
 	{
 		if (*format != '%')
 		{
-			_putchar(*format);
-			totalchar++;
+			totalchar += _putchar(*format);
 		}
 		else
 		{
 			format++;
-
 			if (*format == 'c')
 			{
 				char c = va_arg(args, int);
@@ -60,7 +52,6 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 			const char *str = va_arg(args, const char *);
-
 				fputs(str, stdout);
 				totalchar += strlen(str);
 			}
