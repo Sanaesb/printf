@@ -1,6 +1,6 @@
 #include "main.h"
 
-int CasesFunction(va_list arg, char specifier)
+int CasesFunction(va_list args, char specifier)
 {
 	int i=0;
 
@@ -10,7 +10,7 @@ int CasesFunction(va_list arg, char specifier)
 	}
 	else if (specifier == 's')
 	{
-		i+=stringprint(va_list args);
+		i+=stringprint(args);
 	}
 	else if ( specifier == '%')
 	{

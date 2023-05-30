@@ -13,9 +13,9 @@ int stringprint(va_list args)
 
 	if (str == NULL)
 		str = "(null)";
-	while (str[i] != '\0')
+	while (str[c] != '\0')
 	{
-		_putchar(str[i]);
+		_putchar(str[c]);
 		c++;
 	}
 	return (c);
