@@ -78,6 +78,12 @@ else
 				_putchar('%');
 				totalchar++;
 			}
+			else
+		        {
+                         _putchar('%');
+                         _putchar(*format);
+                         totalchar += 2;
+                        }	
 		}
 	}
 	va_end(args);
