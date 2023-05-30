@@ -23,12 +23,11 @@ int CasesFunction(va_list args, char specifier)
 	{
 		i += _putchar('%');
 	}
-	/*
-	*else if ( (specifier == 'i')||(specifier == 'd'))
-	*{
-	*	i += printid(va_list args);
-	*}
-	*/
+
+	else if ((specifier == 'i') || (specifier == 'd'))
+	{
+		i += printid(args);
+	}
 	else
 	{
 		i += _putchar('%');
