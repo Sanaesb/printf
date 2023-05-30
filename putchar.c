@@ -5,8 +5,7 @@
  * Return: 1 on success
  * On error, return -1 and set erno appropriately
  */
-
 int _putchar(char c)
 {
-        return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
