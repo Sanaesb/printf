@@ -14,6 +14,8 @@ int main(void)
     unsigned int ui;
     void *addr;
     int n ;
+    char *str = NULL;
+
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -40,7 +42,15 @@ int main(void)
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
-	n = _printf("%s\n", "hi im a string");
-	printf("%d\n", n);	
+     n = _printf("%s\n", "hi im a string Hello");
+     printf("%d\n", n);
+     n =_printf("%c\n", 'H');
+     printf("%d\n", n);
+    n = _printf("% ");
+    printf("%d\n", n);
+    n = _printf("%s", "");
+    printf("%d\n", n);
+    n = _printf("%s\n", str);
+    printf("%d\n", n);
     return (0);
 }

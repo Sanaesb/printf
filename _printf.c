@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
-
+#include <stdarg.h>
 /**
  * _putchar - prints a single character to standard output
  * @c: the character to print
@@ -24,68 +24,34 @@ int _putchar(char c)
 
 int _printf(const char *format, ...)
 {
-	int totalchar = 0;
-	va_list args;
+    int totalchar = 0;
+    va_list arg;
 
-	va_start(args, format);
+    va_start(arg, format);
 
-	if (format == NULL || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	for (; *format != '\0'; format++)
-	{
-		if (*format != '%')
-		{
-			totalchar += _putchar(*format);
-		}
-		else
-		{
-			format++;
-			if (*format == 'c')
-			{
-				char c = va_arg(args, int);
-
-				_putchar(c);
-				totalchar++;
-			}
-			else if (*format == 's')
-			{
-			char *error = "(null)";
-int i, j = 0;
-const char *str = va_arg(args, const char *);
-
-if (*str)
-{
-    while (str[i] != '\0')
+    if (!format)
     {
-        totalchar +=_putchar(str[i]);
-        i++;
+        return -1;
     }
-}
-else
-{
-    while (error[i] != '\0')
+
+    while (*format)
     {
-        totalchar +=_putchar(error[i]);
-        j++;
-        i++;
+        if (*format == '%')
+        {
+            format++;
+            CasesFunction(arg, *format, &totalchar);
+        }
+        else
+        {
+            putchar(*format);
+            totalchar++;
+        }
+        format++;
     }
+
+    va_end(arg);
+
+    return totalchar;
 }
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				totalchar++;
-			}
-			else
-		        {
-                         _putchar('%');
-                         _putchar(*format);
-                         totalchar += 2;
-                        }	
-		}
-	}
-	va_end(args);
-	return (totalchar);
-}
+
+
