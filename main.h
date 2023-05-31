@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
+#include <limits.h>
 /* Function Prototypes */
 int _putchar(char c);
 int stringprint(va_list args);
